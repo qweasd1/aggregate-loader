@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  db:
+    image: "postgres:14.4"
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=root
+      - POSTGRES_DB=db
+  # redis:
+  #   image: "redis:6.2"
+  #   ports:
+  #     - 6380:6379
+  # nginx:
+  #   image: "nginx:1.23.1-alpine"
+  #   volumes:
+  #     - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+  #   ports:
+  #     - 8887:80
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         cpus: '2'
+  #         memory: 1024M
+  #       reservations:
+  #         cpus: '2'
+  #         memory: 1024M

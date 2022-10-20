@@ -1,0 +1,36 @@
+{
+  "name": "benchmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "seed": "npx prisma db seed",
+    "push": "npx prisma db push",
+    "reset": "npx prisma migrate reset",
+    "start-server": "ts-node --transpile-only server-aggregate-loader.ts",
+    "debug-server": "node --inspect -r ts-node/register server-aggregate-loader.ts",
+    "start-server-base": "ts-node --transpile-only server-plain.ts",
+    "k6": "k6 run k6/test-db.mjs",
+    "bc": "npm-run-all --parallel start-server k6",
+    "bcb": "npm-run-all --parallel start-server-base k6"
+  },
+  "prisma": {
+    "seed": "ts-node --transpile-only prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.5.0",
+    "@types/chance": "^1.1.3",
+    "@types/k6": "^0.39.1",
+    "@types/node": "^18.11.1",
+    "chance": "^1.1.9",
+    "fastify": "^4.9.2",
+    "npm-run-all": "^4.1.5",
+    "prisma": "^4.5.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.6.2",
+    "zipfian": "^0.2.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
